@@ -37,10 +37,14 @@ export default {
         validateInputs() {
             if (!this.billTotal) {
                 this.message = 'please enter Total Bill amount'
+            } else if (isNaN(this.billTotal)) {
+                this.message = 'incorrect format in Total Bill'
             } else if (this.tipPercent === 0) {
                 this.message = 'please select a Tip amount'
             } else if (!this.partySize) {
                 this.message = 'please enter Party Size'
+            } else if (isNaN(this.partySize)) {
+                this.message = 'incorrect format in Party Size'
             } else {
                 this.message = ''
                 this.calculateTotals()
