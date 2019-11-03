@@ -11,7 +11,10 @@
             </select>
             <input type='text' id='party-size' v-model='partySize' placeholder='Party Size'>
             <div id='message'>{{ this.message }}</div>
-            <button>Calculate</button>
+            <div class='result-row'>
+                <span id='emoji'>{{ this.emoji }}</span>
+                <button>Calculate</button>
+            </div>
         </form>
         <Calculations :tip='tipAmount' :total='totalAmount'/>
     </div>
@@ -28,7 +31,8 @@ export default {
             partySize: null,
             tipAmount: 0,
             totalAmount: 0,
-            message: ''
+            message: '',
+            emoji: null
         }
     },
     components: {
@@ -70,14 +74,19 @@ export default {
         },
         determineColor() {
             if (this.tipPercent == 0) {
+                this.emoji = null
                 return {'background-color': 'rgb(239, 242, 243)'}
             } else if (this.tipPercent == 0.10) {
+                this.emoji = '😬'
                 return {'background-color': '#6093E0'}
             } else if (this.tipPercent == 0.15) {
+                this.emoji = '🙂'
                 return {'background-color': '#74A9F7'}
             } else if (this.tipPercent == 0.18) {
+                this.emoji = '😁'
                 return {'background-color': '#94BDFA'}
             } else if (this.tipPercent == 0.20) {
+                this.emoji = '😍'
                 return {'background-color': '#BAD7FF'}
             }
         }
@@ -111,13 +120,21 @@ export default {
             text-align: center;
             margin: 10px 0 -5px 0;
         }
-        button {
-            font-size: 22px;
-            padding: 5px;
-            float: right;
-            margin: 20px 30px;
-            background-color: rgb(250, 251, 252);
-            width: 110px;
+        .result-row {
+            display: flex;
+            justify-content: flex-end;
+            align-content: space-between;
+            #emoji {
+                margin: 20px 37px 0 80px;
+                font-size: 35px;
+            }
+            button {
+                font-size: 22px;
+                margin: 20px 30px 0 30px;
+                background-color: rgb(250, 251, 252);
+                width: 110px;
+                height: 40px;
+            }
         }
     }
 }
