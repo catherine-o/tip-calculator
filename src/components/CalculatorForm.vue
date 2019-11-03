@@ -1,25 +1,42 @@
 <template>
-    <form id='calculator-form'>
-        <input type='text'  v-model='total' placeholder='Total Bill'>
-        <select name='tip' v-model='tip' id='tip'>
-            <option value='0' selected>Tip</option>
-            <option value='0.10'>10%</option>
-            <option value='0.15'>15%</option>
-            <option value='0.18'>18%</option>
-            <option value='0.20'>20%</option>
-        </select>
-        <input type='text' v-model='partySize' placeholder='Party Size'>
-        <button>Calculate</button>
-    </form>
+    <div>
+        <form id='calculator-form' @submit.prevent='calculateTotals'>
+            <input type='text'  v-model='billTotal' placeholder='Total Bill'>
+            <select name='tip' v-model='tipPercent' id='tip'>
+                <option value='0' selected>Tip</option>
+                <option value='0.10'>10%</option>
+                <option value='0.15'>15%</option>
+                <option value='0.18'>18%</option>
+                <option value='0.20'>20%</option>
+            </select>
+            <input type='text' v-model='partySize' placeholder='Party Size'>
+            <button>Calculate</button>
+        </form>
+        <Calculations :tip='tipAmount' :total='totalAmount'/>
+    </div>
 </template>
 
 <script>
+import Calculations from './Calculations'
 export default {
     data() {
         return {
-            total: null,
-            tip: 0,
-            partySize: null
+            billTotal: null,
+            tipPercent: 0,
+            partySize: null,
+            tipAmount: 0,
+            totalAmount: 0
+        }
+    },
+    components: {
+        Calculations
+    },
+    methods: {
+        calculateTotals() {
+            let tipAmount = (this.billTotal * this.tipPercent) / this.partySize
+            let totalAmount = (+(this.billTotal) + +(tipAmount)) / this.partySize
+            this.tipAmount = tipAmount
+            this.totalAmount = totalAmount
         }
     }
 }
@@ -27,6 +44,7 @@ export default {
 
 <style lang="scss">
 #calculator-form {
+    margin-bottom: 90px;
     input {
         font-size: 22px;
         padding: 5px;

@@ -1,7 +1,7 @@
 <template>
     <div class='calculations'>
-        <Tip />
-        <Total />
+        <Tip :tip='tip'/>
+        <Total :total='total'/>
     </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
     components: {
         Tip,
         Total
+    },
+    props: {
+        tip: Number,
+        total: Number
     }
 }
 </script>
