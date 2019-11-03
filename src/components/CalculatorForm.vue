@@ -9,7 +9,7 @@
                 <option value='0.18'>18%</option>
                 <option value='0.20'>20%</option>
             </select>
-            <input type='text' v-model='partySize' placeholder='Party Size'>
+            <input type='text'  class='party-size' v-model='partySize' placeholder='Party Size'>
             <div id='message'>{{ this.message }}</div>
             <button>Calculate</button>
         </form>
@@ -37,7 +37,12 @@ export default {
     mounted() {
         new Cleave('.input-bill', {
             numeral: true,
-            numeralThousandsGroupStyle: 'thousand'
+            numeralThousandsGroupStyle: 'thousand',
+        })
+        new Cleave('.party-size', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand',
+            numeralDecimalScale: 0
         })
     },
     methods: {
