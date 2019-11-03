@@ -1,7 +1,7 @@
 <template>
     <div>
         <form id='calculator-form' @submit.prevent='validateInputs'>
-            <input type='text'  v-model='billTotal' placeholder='Total Bill'>
+            <input type='text' class='input-bill' v-model='billTotal' placeholder='Total Bill'>
             <select name='tip' v-model='tipPercent' id='tip'>
                 <option value='0' selected>Tip</option>
                 <option value='0.10'>10%</option>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Cleave from 'cleave.js'
 import Calculations from './Calculations'
 export default {
     data() {
@@ -32,6 +33,12 @@ export default {
     },
     components: {
         Calculations
+    },
+    mounted() {
+        new Cleave('.input-bill', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        })
     },
     methods: {
         validateInputs() {
