@@ -1,7 +1,13 @@
 <template>
     <form id='calculator-form'>
         <input type='text' placeholder='Total Bill'>
-        <input type='text' placeholder='% of tip dropdown'>
+        <select name='tip' id='tip'>
+            <option value='0' selected>Tip</option>
+            <option value='10'>10%</option>
+            <option value='15'>15%</option>
+            <option value='18'>18%</option>
+            <option value='20'>20%</option>
+        </select>
         <input type='text' placeholder='Party Size'>
         <button>Calculate</button>
     </form>
@@ -14,6 +20,12 @@
         padding: 5px;
         margin: 20px 0px 0 30px;
         width: 77%;
+    }
+    #tip {
+        width: 81%;
+        height: 35px;
+        margin: 20px 0px 0 30px;
+        font-size: 20px;
     }
     button {
         font-size: 22px;
