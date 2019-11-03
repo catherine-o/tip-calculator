@@ -1,9 +1,20 @@
 <template>
     <div class='calculations'>
-        <p>Tip:</p>
-        <p>Total:</p>
+        <Tip />
+        <Total />
     </div>
 </template>
+
+<script>
+import Tip from './Tip'
+import Total from './Total'
+export default {
+    components: {
+        Tip,
+        Total
+    }
+}
+</script>
 
 <style lang="scss">
 .calculations {

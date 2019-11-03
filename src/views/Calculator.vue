@@ -17,7 +17,7 @@ export default {
 <style lang="scss">
 .tip-calculator {
     margin: 5% auto;
-    width: 350px;
+    width: 370px;
     h1 {
         text-align: center;
     }

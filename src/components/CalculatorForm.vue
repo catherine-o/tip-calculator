@@ -12,12 +12,14 @@
     input {
         font-size: 22px;
         padding: 5px;
-        margin: 20px 0px 0 35px;
+        margin: 20px 0px 0 30px;
+        width: 77%;
     }
     button {
         font-size: 22px;
         padding: 5px;
-        margin: 20px 0 20px 150px; //float right not working
+        float: right;
+        margin: 20px 30px;
         background-color: rgb(250, 251, 252);
         width: 110px;
     }
