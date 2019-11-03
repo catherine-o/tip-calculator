@@ -1,17 +1,14 @@
 <template>
     <div class='container'>
         <CalculatorForm />
-        <Calculations />
     </div>
 </template>
 
 <script>
 import CalculatorForm from './CalculatorForm'
-import Calculations from './Calculations'
 export default {
     components: {
-        CalculatorForm,
-        Calculations
+        CalculatorForm
     }
 }
 </script>

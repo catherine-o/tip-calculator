@@ -1,9 +1,17 @@
 <template>
     <div id='tip'>
         <span>Tip:</span>
-        <span id='tip-amount'>$0.00</span>
+        <span id='tip-amount'>${{ this.tip }}</span>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        tip: Number
+    }
+}
+</script>
 
 <style lang="scss">
 #tip {
