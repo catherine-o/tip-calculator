@@ -1,17 +1,29 @@
 <template>
     <form id='calculator-form'>
-        <input type='text' placeholder='Total Bill'>
-        <select name='tip' id='tip'>
+        <input type='text'  v-model='total' placeholder='Total Bill'>
+        <select name='tip' v-model='tip' id='tip'>
             <option value='0' selected>Tip</option>
-            <option value='10'>10%</option>
-            <option value='15'>15%</option>
-            <option value='18'>18%</option>
-            <option value='20'>20%</option>
+            <option value='0.10'>10%</option>
+            <option value='0.15'>15%</option>
+            <option value='0.18'>18%</option>
+            <option value='0.20'>20%</option>
         </select>
-        <input type='text' placeholder='Party Size'>
+        <input type='text' v-model='partySize' placeholder='Party Size'>
         <button>Calculate</button>
     </form>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            total: null,
+            tip: 0,
+            partySize: null
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 #calculator-form {
