@@ -1,5 +1,5 @@
 <template>
-    <div class='container'>
+    <div class='container' :style='determineColor()'>
         <form id='calculator-form' @submit.prevent='validateInputs'>
             <input type='text' id='input-bill' v-model='billTotal' placeholder='Total Bill'>
             <select name='tip' v-model='tipPercent' id='tip'>
@@ -51,7 +51,7 @@ export default {
                 this.message = 'please enter Total Bill amount'
             } else if (isNaN(this.billTotal) || this.billTotal < 0) {
                 this.message = 'incorrect format in Total Bill'
-            } else if (this.tipPercent === 0) {
+            } else if (this.tipPercent == 0) {
                 this.message = 'please select a Tip amount'
             } else if (!this.partySize) {
                 this.message = 'please enter Party Size'
@@ -67,21 +67,34 @@ export default {
             let totalAmount = (+(this.billTotal) + +(tipAmount)) / this.partySize
             this.tipAmount = tipAmount.toFixed(2)
             this.totalAmount = totalAmount.toFixed(2)
+        },
+        determineColor() {
+            if (this.tipPercent == 0) {
+                return {'background-color': 'rgb(239, 242, 243)'}
+            } else if (this.tipPercent == 0.10) {
+                return {'background-color': '#6093E0'}
+            } else if (this.tipPercent == 0.15) {
+                return {'background-color': '#74A9F7'}
+            } else if (this.tipPercent == 0.18) {
+                return {'background-color': '#94BDFA'}
+            } else if (this.tipPercent == 0.20) {
+                return {'background-color': '#BAD7FF'}
+            }
         }
     }
 }
 </script>
 
+
 <style lang="scss">
 .container {
-    background-color: rgb(239, 242, 243);
     border: 1px solid gray;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     margin: 25px;
     #calculator-form {
-        margin-bottom: 90px;
+        margin-bottom: 20px;
         input {
             font-size: 22px;
             padding: 5px;
@@ -97,7 +110,6 @@ export default {
         #message {
             text-align: center;
             margin: 10px 0 -5px 0;
-            color: rgb(76, 150, 211);
         }
         button {
             font-size: 22px;
