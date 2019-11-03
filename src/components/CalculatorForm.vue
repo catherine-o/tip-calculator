@@ -1,7 +1,7 @@
 <template>
     <div>
         <form id='calculator-form' @submit.prevent='validateInputs'>
-            <input type='text'  v-model='billTotal' placeholder='Total Bill'>
+            <input type='text' id='input-bill' v-model='billTotal' placeholder='Total Bill'>
             <select name='tip' v-model='tipPercent' id='tip'>
                 <option value='0' selected>Tip</option>
                 <option value='0.10'>10%</option>
@@ -9,7 +9,7 @@
                 <option value='0.18'>18%</option>
                 <option value='0.20'>20%</option>
             </select>
-            <input type='text' v-model='partySize' placeholder='Party Size'>
+            <input type='text' id='party-size' v-model='partySize' placeholder='Party Size'>
             <div id='message'>{{ this.message }}</div>
             <button>Calculate</button>
         </form>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Cleave from 'cleave.js'
 import Calculations from './Calculations'
 export default {
     data() {
@@ -32,6 +33,17 @@ export default {
     },
     components: {
         Calculations
+    },
+    mounted() {
+        new Cleave('#input-bill', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand',
+        })
+        new Cleave('#party-size', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand',
+            numeralDecimalScale: 0
+        })
     },
     methods: {
         validateInputs() {
