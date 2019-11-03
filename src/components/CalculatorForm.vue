@@ -35,8 +35,8 @@ export default {
         calculateTotals() {
             let tipAmount = (this.billTotal * this.tipPercent) / this.partySize
             let totalAmount = (+(this.billTotal) + +(tipAmount)) / this.partySize
-            this.tipAmount = tipAmount
-            this.totalAmount = totalAmount
+            this.tipAmount = tipAmount.toFixed(2)
+            this.totalAmount = totalAmount.toFixed(2)
         }
     }
 }
