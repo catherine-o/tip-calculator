@@ -2,7 +2,9 @@
 
 A tip calculator that allows a user to calculate tip based on a chosed percentage as well as the total amount, including tip. A user may also split the bill between a number of party members.
 
-[Demo](https://tip-calculate.firebaseapp.com/)
+[Try it out!](https://tip-calculate.firebaseapp.com/)
+
+![](https://media.giphy.com/media/QybfLnjxeqh1mgLGYH/giphy.gif)
 
 To run program, clone repo locally and run
 
