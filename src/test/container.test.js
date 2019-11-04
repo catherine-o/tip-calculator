@@ -10,8 +10,4 @@ describe('Container', () => {
         
         const Calculations = vm.$el.querySelector('Calculations')
     })
-    
-    it('renders', () => {
-        
-    })
 })
