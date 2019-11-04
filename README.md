@@ -4,7 +4,7 @@ A tip calculator that allows a user to calculate tip based on a chosed percentag
 
 [Try it out!](https://tip-calculate.firebaseapp.com/)
 
-![](https://media.giphy.com/media/hoy4Ft1sYrNfa3Eotd/giphy.gif)
+![](https://media.giphy.com/media/KzQpWgWkVgMCPSiYmq/giphy.gif)
 
 To run program, clone repo locally and run
 
